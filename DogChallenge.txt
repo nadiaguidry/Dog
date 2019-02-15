@@ -1,0 +1,108 @@
+using System
+
+class Dog
+{
+
+    string name;
+    string owner;
+    int age;
+    Gender gender;
+
+
+    public enum Gender
+    {
+        Male,
+        Female
+    }
+
+    public Dog(string DogName, string OwnerName, int DogAge, Gender DogGender)
+    {
+
+        name = DogName;
+        owner = OwnerName;
+        age = DogAge;
+        gender = DogGender;
+
+    }
+
+    public void Bark(int barks)
+    {
+        for (int i = 0; i < barks; i++)
+        {
+            Console.Write("Woof!");
+        }
+        Console.WriteLine();
+
+    }
+
+
+    public string GetGender(Gender gender)
+    {
+        if (gender == Gender.Female)
+        {
+            return "Her";
+        }
+        else
+        {
+            return "His";
+        }
+    }
+
+    public string GetTag()
+    {
+        string hisHer = GetGender(gender).ToString();
+        string heShe;
+
+        if (hisHer == "Her")
+        {
+            heShe = "she";
+        }
+        else
+        {
+            heShe = "he";
+        }
+
+       
+
+        return "If lost, call " + owner + ". " + hisHer + " name is " + name + " and " + heShe + " is " + age + " years old.";
+
+        if (age == 1)
+        {
+            return age + "year";
+        }
+        else
+        {
+
+            return age + "years";
+        }
+
+    }
+  
+
+
+
+    static void Main(string[] args)
+    {
+        Dog puppy = new Dog("Orion", "Shawn", 1, Gender.Male);
+        puppy.Bark(3);
+        Console.WriteLine(puppy.GetTag());
+
+        Dog myDog = new Dog("Lileu", "Dale", 4, Gender.Female);
+        myDog.Bark(1);
+        Console.WriteLine(myDog.GetTag());
+
+        Console.ReadKey();
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
